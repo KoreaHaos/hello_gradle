@@ -8,14 +8,35 @@ cat > src/main/java/hello/HelloWorld.java << EOF
 package hello;
 
 import org.joda.time.LocalTime;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 public class HelloWorld {
   public static void main(String[] args) {
-    LocalTime currentTime = new LocalTime();
-    System.out.println("The current local time is: " + currentTime);
-
     Greeter greeter = new Greeter();
+
     System.out.println(greeter.sayHello());
+    
+    LocalTime currentTime = new LocalTime();
+    
+    System.out.println("Using Joda Time, current local time is: " + currentTime);
+    
+    
+    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    Date date = new Date();
+    System.out.println("\nUsing Java's Date class, current local date/time is: " + dateFormat.format(date));
+    
+    Calendar calendar = Calendar.getInstance();
+    System.out.println("\nUsing Java's Calendar class' getTime method, current local date/time is: " + dateFormat.format(calendar.getTime()));
+
+    TimeZone timeZone = calendar.getTimeZone();
+    System.out.println("\nThe time zone this code is running under is : " + timeZone.getDisplayName());
+    
+    Fareweller fareweller = new Fareweller();
+    System.out.println(fareweller.sayGoodbye());
   }
 }
 EOF
@@ -26,8 +47,22 @@ cat > src/main/java/hello/Greeter.java << EOF
 package hello;
 
 public class Greeter {
+  
   public String sayHello() {
-    return "Hello world!";
+    return "\nHello Gradle World!\n";
+  }
+}
+EOF
+
+# Create Fareweller Java class.
+
+cat > src/main/java/hello/Fareweller.java << EOF
+package hello;
+
+public class Fareweller {
+  
+  public String sayGoodbye() {
+    return "\nGoodbye Hello Gradle World!\n";
   }
 }
 EOF
