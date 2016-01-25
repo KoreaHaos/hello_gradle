@@ -7,7 +7,7 @@
        \/       \/                           \/           \/      \/           \/   \/
 ```
 
-http://gradle.org/
+### The script:
 
 ```bash
 # Create a basic directory structure.
