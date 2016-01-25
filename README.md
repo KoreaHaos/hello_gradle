@@ -98,7 +98,7 @@ gradle wrapper
 
 ##### Sources:
 
-http://gradle.org/
-https://spring.io/guides/gs/gradle/
+* http://gradle.org/
+* https://spring.io/guides/gs/gradle/
 
 
