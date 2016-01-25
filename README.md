@@ -7,7 +7,7 @@
        \/       \/                           \/           \/      \/           \/   \/
 ```
 
-### The script:
+##### The script:
 
 ```bash
 # Create a basic directory structure.
